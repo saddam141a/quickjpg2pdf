@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QuickJpg2Pdf</title>
+  <link rel="icon" href="favicon.jpg" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QuickJpg2Pdf: Convert JPG images to PDF online for free, fast, and secure. No software installation or sign-up required." />
+  <meta name="keywords" content="JPG to PDF, Convert JPG to PDF, Online PDF tool, Free PDF converter" />
+  <link href="new.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      padding: 30px;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      background-color: #20232a;
+      color: #61dafb;
+      padding: 20px 0;
+      font-size: 32px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    nav {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    nav a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      max-width: 500px;
+      margin: auto;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .container h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #333;
+    }
+    .container p {
+      margin-bottom: 25px;
+      color: #555;
+    }
+    input[type="file"] {
+      border: 2px dashed #4CAF50;
+      padding: 15px;
+      width: 100%;
+      background: #f9f9f9;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    .btn {
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #43a047, #388e3c);
+    }
+    .info-section {
+      max-width: 650px;
+      margin: 50px auto 30px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 30px 35px;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+    .info-section h3 {
+      font-size: 26px;
+      color: #222;
+      margin-bottom: 15px;
+    }
+    .info-section p {
+      color: #444;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    #pdfPreview {
+      margin: 20px auto;
+      width: 100%;
+      max-width: 600px;
+      height: 500px;
+      border: 1px solid #ccc;
+      display: none;
+    }
+    #loader {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+      display: none;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    QuickJpg2Pdf
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2>Convert JPG to PDF – Free & Easy</h2>
+    <p>Upload your JPG image and get a PDF instantly – no registration required!</p>
+
+    <form id="pdfForm">
+      <input type="file" accept=".jpg, .jpeg" id="imageInput" required />
+      <br />
+      <button class="btn" type="submit">Convert to PDF</button>
+    </form>
+
+    <div id="loader">⏳ Converting to PDF... Please wait.</div>
+
+    <iframe id="pdfPreview"></iframe>
+    <a id="downloadLink" class="btn" href="#" download="converted.pdf" style="display:none;">Download PDF</a>
+  </div>
+
+  <div class="info-section">
+    <h3>Why Use Our JPG to PDF Converter?</h3>
+    <p>
+      Our <strong>JPG to PDF converter</strong> is the perfect online tool for anyone who needs a <em>fast</em>, <em>free</em>, and <strong>secure</strong> way to convert <strong>JPG images</strong> into professional-quality <strong>PDF documents</strong>. With our tool, you can easily <strong>convert JPG files to PDF</strong> without installing any software or creating an account. 
+    </p>
+    <p>
+      Enjoy <em>high-quality output</em> that preserves the original image clarity, supports <strong>multiple JPG formats</strong>, and works seamlessly on all devices including <strong>Windows, Mac, Android, and iOS</strong>. Our service guarantees <em>100% privacy and data security</em>, so your files are never stored or shared.
+    </p>
+    <p>
+      Whether you're a student, professional, or casual user, our <strong>online JPG to PDF converter</strong> is designed to save you time and effort with a <em>simple</em> and <strong>intuitive</strong> interface. Convert your images to PDFs for reports, presentations, or archiving — all instantly and hassle-free!
+    </p>
+    <p>
+      Try our <strong>JPG to PDF converter online</strong> now and experience the easiest, most reliable way to <strong>turn JPG into PDF</strong> — completely free and without any limits.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 EasyPDFConvert.com | All rights reserved.
+  </footer>
+
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    document.getElementById("pdfForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fileInput = document.getElementById("imageInput");
+      const file = fileInput.files[0];
+      if (!file) return alert("Please upload an image!");
+
+      // Show loader
+      document.getElementById("loader").style.display = "block";
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const imgData = event.target.result;
+        const pdf = new jsPDF();
+        const img = new Image();
+        img.src = imgData;
+
+        img.onload = function () {
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (img.height * pdfWidth) / img.width;
+
+          pdf.addImage(img, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+          const pdfBlob = pdf.output('blob');
+
+          const pdfUrl = URL.createObjectURL(pdfBlob);
+
+          // Show preview
+          const iframe = document.getElementById("pdfPreview");
+          iframe.src = pdfUrl;
+          iframe.style.display = "block";
+
+          // Show download button
+          const downloadLink = document.getElementById("downloadLink");
+          downloadLink.href = pdfUrl;
+          downloadLink.style.display = "inline-block";
+
+          // Hide loader
+          document.getElementById("loader").style.display = "none";
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
